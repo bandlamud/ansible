@@ -1,0 +1,22 @@
+- name: Play01
+  hosts: frontend
+  tasks:
+  - name: Play01
+    ansible.builtin.debug:
+      msg: "Helow from Paly01 and Task-01"
+
+  - name: Play01
+    ansible.builtin.debug:
+      msg: "Helow from Paly01 and Task-02"
+
+  - name: Play02
+    hosts: frontend
+    tasks:
+  - name: Play02
+    ansible.builtin.debug:
+      msg: "Helow from Paly02 and Task-01"
+
+  - name: Play01
+    ansible.builtin.debug:
+      msg: "Helow from Play02 and Task-02"
+  
