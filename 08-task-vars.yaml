@@ -1,5 +1,6 @@
 - name: task level vars
   hosts: local
+  connection: local
   vars:
     COURCE: AWS with Devops
     DURATION: 10H
