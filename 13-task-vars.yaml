@@ -9,5 +9,5 @@
   - name: printing cource info
     ansible.builtin.debug:
     vars:
-      COURSE: Aws with Devops
+      COURSE: Ansible
       msg: "The cource is: {{ COURSE }} the Duration is: {{ DURATION }} and Trainer is: {{ TRAINER }} "
