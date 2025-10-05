@@ -1,0 +1,5 @@
+- name: ping to another server
+  hosts: frontend
+  tasks:
+  - name: ping
+    ansible.builtin.debug:
