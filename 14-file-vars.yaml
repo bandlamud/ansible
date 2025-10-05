@@ -1,0 +1,9 @@
+- name: play leve vars
+  hosts: local
+  connection: local
+  vars_files:
+  - course.yaml
+  tasks:
+  - name: printing cource info
+    ansible.builtin.debug:
+      msg: "The cource is: {{ COURSE }} the Duration is: {{ DURATION }} and Trainer is: {{ TRAINER }} "
