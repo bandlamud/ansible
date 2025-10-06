@@ -17,3 +17,6 @@
   - name: print course info
     ansible.builtin.debug:
       msg: " the Course name is: {{ COURSE }}, duration is: {{ DURATION }}, it is live: {{ is_live}}, and tools are: {{ tools }} and concepts: {{ concepts}}"
+
+# list: []
+# map: {}
