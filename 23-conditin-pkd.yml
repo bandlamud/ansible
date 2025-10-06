@@ -1,4 +1,5 @@
 - name: check the facts
+  become: yes
   hosts: local
   connection: local
   tasks:
