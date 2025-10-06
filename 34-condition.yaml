@@ -1,0 +1,16 @@
+- name: installing nginx
+  hosts: local
+  connection: local
+  become: yes
+  tasks:
+  - name: installing nginx when RedHat
+    ansible.builtin.dnf:
+      name: nginx
+      state: latest
+    when: ansible_os_family == "RedHat"
+
+  - name: installing nginx when Debian
+    ansible.builtin.apt:
+      name: nginx
+      state: latest
+    when: ansible_os_family == "Debian"
