@@ -2,7 +2,7 @@
   hosts: local
   connection: local
   vars:
-    technologies: Linux,ansible,Git # staring
+    technologies: Linux, ansible, Git # staring
   tasks:
   - name: default functions
     ansible.builtin.debug:
