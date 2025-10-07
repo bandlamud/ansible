@@ -6,6 +6,7 @@
   - name: check the sravani user
     ansible.builtin.command: id sravani
     register: user_output
+    ignore_errors: true
 
   - name: print the output
     ansible.builtin.debug:
