@@ -3,10 +3,19 @@
   connection: local
   vars:
     technologies: Linux, ansible, Git # staring
+    tags: # dictonary or map
+      Application: payment
+      Environment: dev
   tasks:
   - name: default functions
     ansible.builtin.debug:
       msg: "{{ name | default('Balachandra')}}"
+
   - name: tranforming string to list
     ansible.builtin.debug:
-      msg: "{{ technologies | split(',') }}"
+      msg: technologies is:"{{ technologies | split(',') }}"
+
+  - name: tranforming map to list
+    ansible.builtin.debug:
+      msg: "tags are: {{ tags| dict2items }}"
+  
