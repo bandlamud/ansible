@@ -52,8 +52,8 @@
   
   - name: using redirection
     ansible.builtin.shell: ls -l > /tmp/output.txt
-    register: command_output
+    register: redirect_output
 
   - name: print the command output
     ansible.builtin.debug:
-      msg: {{ command_output }}
+      msg: {{ redirect_output }}
