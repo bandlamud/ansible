@@ -12,4 +12,8 @@
     ansible.builtin.debug:
       msg: "{{user_output }}"
 
+  - name: create a balu user
+    ansible.builtin.command: useradd balu
+    when: user_output.rc != 0
+
 
