@@ -7,10 +7,10 @@
       Application: payment
       Environment: dev
     listtags:
-      - key: Application
-        value: payment
-      - key: Environment
-        value: dev
+    - key: Application
+      value: payment
+    - key: Environment
+      value: dev
   tasks:
   - name: default functions
     ansible.builtin.debug:
