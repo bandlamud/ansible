@@ -40,3 +40,11 @@
     ansible.builtin.copy:
       dest: ./studen-data.json
       content: "json is: {{student_yaml | to_json  }}"
+
+  - name: grep for root
+    ansible.builtin.command: cat /etc/passwd | grep root
+    register: command_output
+
+  - name: print the output
+    ansible.builtin.debug:
+      msg: "{{ command_output }}"
