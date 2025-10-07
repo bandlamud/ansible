@@ -1,0 +1,12 @@
+- name: check the user id exist or not
+  hosts: local
+  connection: local
+  become: yes
+  tasks:
+  - name: check the sravani user
+    ansible.builtin.command: id sravani
+    register: user_output
+
+  - name: print the output
+    ansible.builtin.debug:
+      msg: "{{ user_output }}"
