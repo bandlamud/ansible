@@ -6,16 +6,25 @@
     tags: # dictonary or map
       Application: payment
       Environment: dev
+    listtags:
+      - key: Application
+        value: payment
+      - key: Environment
+        value: dev
   tasks:
   - name: default functions
     ansible.builtin.debug:
       msg: "{{ name | default('Balachandra')}}"
 
-  - name: tranforming string to list
+  - name: transforming string to list
     ansible.builtin.debug:
       msg: technologies is:"{{ technologies | split(',') }}"
 
-  - name: tranforming map to list
+  - name: transforming map to list
     ansible.builtin.debug:
       msg: "tags are: {{ tags| dict2items }}"
+
+  - name:  transforming item to disctory
+    ansible.builtin.debug:
+      msg: "tagslist are: {{ listtags | dict2items }}"
   
