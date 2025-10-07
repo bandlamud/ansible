@@ -26,5 +26,5 @@
 
   - name:  transforming item to disctory
     ansible.builtin.debug:
-      msg: "tagslist are: {{ listtags | dict2items }}"
+      msg: "tagslist are: {{ listtags | items2dict }}"
   
