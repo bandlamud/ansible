@@ -8,18 +8,19 @@
     domain_name: daws89s.fun
     instances:
     - mongodb
-- name: craete ec2 instances
-  amazon.aws.ec2_instance:
-    name: "{{item}}"
-    instance_type: t3.micro
-    security_group: "{{ sg_id }}"
-    image_id: "{{ami_id}}"
-    tags:
-      Name: "{{item}}"
-  loop: "{{ instances }}"
-  register: ec2_output
+  tasks:
+  - name: craete ec2 instances
+    amazon.aws.ec2_instance:
+      name: "{{item}}"
+      instance_type: t3.micro
+      security_group: "{{ sg_id }}"
+      image_id: "{{ami_id}}"
+      tags:
+        Name: "{{item}}"
+    loop: "{{ instances }}"
+    register: ec2_output
 
-- name: print ec2 output
-  ansible.builtin.debug:
-    msg: "{{ec2_output}}"
-    
+  - name: print ec2 output
+    ansible.builtin.debug:
+      msg: "{{ec2_output}}"
+      
