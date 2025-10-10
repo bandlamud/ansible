@@ -1,5 +1,5 @@
 - name: setup catelogue server
-  hosts: catelogue
+  hosts: catalogue
   become: yes
   tasks:
   - name: disable nodejs
