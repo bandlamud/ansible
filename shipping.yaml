@@ -6,6 +6,7 @@
     ansible.builtin.package:
       name: maven
       state: present
+    
   - name: create a system user
     ansible.builtin.user:
       name: roboshop
@@ -69,7 +70,10 @@
   - name: install mysql python libreis
     ansible.builtin.pip:
       executable: pip3.9
-      name: PyMySQL
+      name: "{{item}}"
+    loop:
+    - PyMySQL
+    - cryptography
 
   - name: import the shipping data to mysql
     community.mysql.mysql_db:
