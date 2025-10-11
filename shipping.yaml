@@ -81,13 +81,14 @@
       name: all
       login_host: mysql.daws89s.fun
       login_user: root
-      login_password: pRoboShop@1
+      login_password: RoboShop@1
       target: "{{ item }}"
     loop:
     - /app/db/schema.sql
     - /app/db/app-user.sql 
     - /app/db/master-data.sql 
 
+    
   - name: restart shiping service
     ansible.builtin.service:
       name: shipping
