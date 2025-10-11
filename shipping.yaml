@@ -66,6 +66,11 @@
       name: mysql 
       state: present
 
+  - name: install mysql python libreis
+    ansible.builtin.pip:
+      executable: pip3.9
+      name: PyMySQL
+
   - name: import the shipping data to mysql
     community.mysql.mysql_db:
       state: import
