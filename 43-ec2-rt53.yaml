@@ -1,0 +1,25 @@
+- name: create ec2 instance and update route 53 records
+  hosts: local
+  connection: local
+  vars:
+    ami_id: ami-09c813fb71547fc4f
+    sg_id: sg-0f110578dbed67965
+    zone_id: Z00363011Z6DCTPYPRFG8
+    domain_name: daws89s.fun
+    instances:
+    - mongodb
+  tasks:
+    - name: create ec2 instance
+      amazon.aws.ec2_instance:
+        name: "{{ intem }}"
+        instance_type:
+        security_group:
+        image_id:
+        tags:
+          Name: "{{ item }}"
+      loop: "{{ instances }}"
+      register: ec2_output
+      
+    - name: print ec2_output
+      ansible.builtin.debug:
+        msg: "{{ ec2_output }}"

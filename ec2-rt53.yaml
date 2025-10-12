@@ -7,14 +7,14 @@
     zone_id: Z00363011Z6DCTPYPRFG8
     domain_name: daws89s.fun
     instances:
-    - shipping
-    # - user
-    # - cart 
-    # - catalogue
-    # - mongodb
-    # - redis
-    # - mysql
-    # - rabbitmq
+    # - shipping
+    #  - user
+    #  - cart 
+    #  - catalogue
+    #  - mongodb
+    #  - redis
+    #  - mysql
+    #  - rabbitmq
   tasks:
   - name: craete ec2 instances
     amazon.aws.ec2_instance:
