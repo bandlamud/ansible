@@ -26,7 +26,19 @@
     ansible.builtin.unarchive:
       src:  /tmp/shipping.zip
       dest: /app
-      remote_src: yes
+      remote_src: 
+      
+  - name: install dependencies
+    ansible.builtin.command: mvn clean package 
+    args:
+      chdir: /app
+
+  - name: move the file to target directory
+    ansible.builtin.command: mv target/shipping-1.0.jar shipping.jar 
+    args:
+      chdir: /app
+
+    
 
   
 
