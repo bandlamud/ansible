@@ -3,7 +3,12 @@
   become: yes
   tasks:
   - name: install maven package
-    ansible.builtin.command: dnf install maven -y
+    ansible.builtin.package:
+      name: "{{ item }}"
+      state: present
+    loop:
+    - maven
+    - mysql
 
   - name: setup root password for system user
     ansible.builtin.user:
@@ -38,7 +43,27 @@
     args:
       chdir: /app
 
-    
+  - name: copy the shipping.service
+    src: shipping.service
+    dest: /etc/systemd/system/shipping.service
+
+  - name: start and restarte the service
+    ansible.builtin.systemd_service:
+      name: shipping 
+      daemon_reload: true
+      state: started
+
+  - name: load the data to mysql
+    community.mysql.mysql_db:
+      state: import
+      name: all
+      login_host: root
+      login_password: RoboShop@1
+      target: "{{ item }}"
+    loop:
+    - /app/db/schema.sql
+    - /app/db/app-user.sql 
+    - /app/db/master-data.sql
 
   
 
