@@ -44,8 +44,9 @@
       chdir: /app
 
   - name: copy the shipping.service
-    src: shipping.service
-    dest: /etc/systemd/system/shipping.service
+    ansible.builtin.copy:
+      src: shipping.service
+      dest: /etc/systemd/system/shipping.service
 
   - name: start and restarte the service
     ansible.builtin.systemd_service:
