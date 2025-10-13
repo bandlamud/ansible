@@ -1,0 +1,31 @@
+- name: setup shipping server
+  hosts: shipping
+  become: yes
+  tasks:
+  - name: install maven package
+    ansible.builtin.command: dnf install maven -y
+
+  - name: setup root password for system user
+    ansible.builtin.user:
+      name: roboshop
+      comment: system user
+      shell: /sbin/nologin
+      home: /app
+
+  - name: create /app directory
+    ansible.builtin.file:
+      path: /app
+      state: directory
+
+  - name: download the shipping application
+    ansible.builtin.get_url:
+      url: https://roboshop-artifacts.s3.amazonaws.com/shipping-v3.zip 
+      dest: /tmp/shipping.zip
+
+  - name: unarchive the shipping application
+    ansible.builtin.unarchive:
+      src: f/tmp/shipping.zip
+      dest: /app
+
+  
+
