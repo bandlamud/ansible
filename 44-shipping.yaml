@@ -24,7 +24,7 @@
 
   - name: unarchive the shipping application
     ansible.builtin.unarchive:
-      src: f/tmp/shipping.zip
+      src:  /tmp/shipping.zip
       dest: /app
       remote_src: yes
 
