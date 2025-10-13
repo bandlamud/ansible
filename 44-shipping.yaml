@@ -56,8 +56,11 @@
 
   - name: install ansible pip 
     ansible.builtin.pip:
-      name: PyMySQL
+      name: "{{ item }}"
       executable: pip3.9
+    loop:
+    - cryptography
+    - PyMySQL
 
   - name: load the data to mysql
     community.mysql.mysql_db:
@@ -71,6 +74,11 @@
     - /app/db/schema.sql
     - /app/db/app-user.sql 
     - /app/db/master-data.sql
+
+  - name: restart shipping service
+    ansible.builtin.service:
+      name: shipping
+      state: restarted
 
     
   
